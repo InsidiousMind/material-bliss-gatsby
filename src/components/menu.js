@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Drawer from '@material-ui/core/Drawer';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -13,22 +13,31 @@ import MenuItems from './menu_items';
 //{/*      className="menu-overflow"*/ }
 //      {/*containerClassName="menu-overflow"*/}
 //
+//
 
-const Menu = ({config, open, handleToggle}) => {
+const styles = {
+  menuBar: {
+    position: 'relative',
+    float: 'left',
+    width: '20em',
+  }
+
+}
+const Menu = ({config, open, handleToggle, classes}) => {
   return (
     <Drawer
       open={open}
       onClose={handleToggle}
+      className="menu-overflow"
     >
-      <AppBar position='fixed' color='default' >
+      <AppBar position='relative' color='default' className={classes.menuBar} >
         <Toolbar>
           <IconButton 
             color="inherit" 
             aria-label="Menu"
             onClick={handleToggle}
-            className="menu-overflow"
           >
-            <MenuIcon/>
+            <MenuIcon open={open} />
           </IconButton>
           <Typography variant="title" color="inherit">
             Menu
@@ -40,4 +49,4 @@ const Menu = ({config, open, handleToggle}) => {
   );
 }
 
-export default Menu;
+export default withStyles(styles)(Menu);

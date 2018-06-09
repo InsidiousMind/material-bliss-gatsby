@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import classnames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -8,18 +8,28 @@ import Menu from './menu';
 import RightBar from './right_menu_bar';
 import Link from 'gatsby-link'
 
-
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  flex: {
+    flex: 1,
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+}
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = { 
       open: true,
-      width: 1200, 
-      height: null,
       config: props.config,
       handleThemeToggle: props.handleThemeToggle,
       handleMenuToggle: props.handleMenuToggle,
+      classes: props.classes,
     };
   }
   
@@ -37,15 +47,15 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <AppBar position="static">
+        <AppBar position="fixed" color="default">
           <Toolbar>
-            <IconButton color="inherit" aria-label="Menu" onClick={this.handleToggle}>
+            <IconButton 
+              color="inherit"
+              aria-label="Menu" 
+              onClick={this.handleToggle}
+            >
               <MenuIcon open={this.state.open}/>
             </IconButton>
-            <RightBar 
-              config={this.state.config} 
-              handleThemeSwitch={this.state.handleThemeToggle} 
-            />
           </Toolbar>
         </AppBar>
         <Menu open={this.state.open} handleToggle={this.handleToggle} config={this.state.config} location={this.state.location} />
@@ -53,4 +63,5 @@ class Header extends Component {
     );
   }
 }
-export default Header;
+
+export default withStyles(styles)(Header);

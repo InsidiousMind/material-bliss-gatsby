@@ -56,7 +56,7 @@ const MenuItems = (props) => (
       </CardContent>
       <CardActions>
         <Link to='/about/' >
-          <Button variant='contained' primary>
+          <Button variant='contained'>
             More About Me
           </Button>
         </Link>
