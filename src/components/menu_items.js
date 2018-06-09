@@ -24,7 +24,7 @@ const styles = {
 
 const getMenuItem = (name, path, url) => {
   return (
-    <Link to={url}>
+    <Link to={path}>
       <MenuItem>{name}</MenuItem>
     </Link>
   );
