@@ -1,9 +1,11 @@
-# gatsby-starter-default
-The default Gatsby starter.
+# Material Bliss 
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
+A rewrite of the material bliss theme for Jekyll using gatsby.
 
-## Install
+This will make maintence and extending of the site easier.
+
+
+## Developing with Gatsby
 
 Make sure that you have the Gatsby CLI program installed:
 ```sh
