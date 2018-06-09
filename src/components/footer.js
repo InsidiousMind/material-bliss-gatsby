@@ -1,6 +1,6 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
-import {SocialMediaList} from './social_media_list';
+import SocialMediaList from './social_media_list';
 import SignupForm from './signup_form';
 
 

@@ -1,14 +1,18 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import _ from 'lodash';
-
 import MenuItem from '@material-ui/core/MenuItem';
-import { Card, CardActions, CardHeader, CardTitle, cardText } from '@material-ui/core/Card';
+
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { SocialMediaList } from './social_media_list';
+import SocialMediaList from './social_media_list';
 
 
-const menuItems = { Home: '/', About: '/about/', Projects: '/projects/'};
+const menu_items = { Home: '/', About: '/about/', Projects: '/projects/'};
 
 const styles = {
   spanSocial: {
@@ -29,34 +33,36 @@ const getMenuItem = (name, path, url) => {
 
 const renderMenuItems = (url) => {
   const result = [];
-  _.forEach(menuItems, (value, key) => {
+  _.forEach(menu_items, (value, key) => {
     result.push(getMenuItem(key, value, url));
   });
   return result.map((item) => item);
 };
 
-export const MenuItems = (props) => (
+const MenuItems = (props) => (
   <div>
     {renderMenuItems(props.config.url)}
     <Card>
-      <CardHeader
-        title={props.config.name}
-        subtitle={props.config.menu_right_subtitle}
-        avatar={props.config.avatar}
-      />
-      <CardTitle title="About" />
-      <CardText>
-        {props.config.description}
-      </CardText>
+      <CardContent>
+        <Typography gutterBottom variant="headline" component="h2">
+          {props.config.name}
+        </Typography>
+        <Typography component="h3">
+          {props.config.menu_right_subtitle}
+        </Typography>
+        <Typography component="p">
+          {props.config.description}
+        </Typography>
+      </CardContent>
       <CardActions>
-        {getLink(
-          <Button variant="contained" label="More About Me" primary />,
-          '',
-          props.config.url,
-          '/about/'
-        )}
+        <Link to='/about/' >
+          <Button variant='contained' primary>
+            More About Me
+          </Button>
+        </Link>
       </CardActions>
     </Card>
     <SocialMediaList style={styles.spanSocial} social={props.config.social} />
   </div>
-)
+);
+export default MenuItems;

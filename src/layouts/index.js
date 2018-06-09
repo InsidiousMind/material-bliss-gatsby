@@ -2,7 +2,7 @@ import React, { Component, Children, cloneElement } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import './index.css'
+import './main.scss'
 import 'typeface-roboto'
 import {teal, green, blueGrey, grey, cyan} from '@material-ui/core/colors/';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
@@ -92,10 +92,10 @@ export default class Layout extends Component {
     return lightMuiTheme;
   }
 
-  handleToggle = () => {
+  handleThemeToggle = () => {
     this.setState({ dark: !this.state.dark });
   }
-  
+
   renderChildren = () => Children.map(this.props.children, 
     (child) => cloneElement(child, [{
       themeState: this.state.dark
@@ -116,10 +116,13 @@ export default class Layout extends Component {
         />
         <MuiThemeProvider theme={this.getTheme()}>
           <div>
-            <Header location={this.props.location} config={this.state.data.site.siteMetadata} handleThemeSwitch={this.handleToggle}>
+            <Header 
+              location={this.props.location} 
+              config={this.state.data.site.siteMetadata} 
+              handleThemeToggle={this.handleThemeToggle} 
+            />
               {this.renderChildren()}
-              <Footer themeState={this.state.dark} />
-            </Header>
+            <Footer themeState={this.state.dark} />
           </div>
         </MuiThemeProvider>
 

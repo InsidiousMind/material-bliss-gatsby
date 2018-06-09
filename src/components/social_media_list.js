@@ -35,13 +35,12 @@ const renderIcons = (social) => {
   return result.map(element => { return element; });
 }
 
-
-
-
-export const SocialMediaList = ({social, style}) => {
+const SocialMediaList = ({social, style}) => {
   return (
     <span style={style} className="social-media-list">
       {renderIcons(social)}
     </span>
   );
 }
+
+export default SocialMediaList;

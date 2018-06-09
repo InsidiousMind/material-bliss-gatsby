@@ -5,6 +5,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@material-ui/core": "^1.2.0",
+    "@material-ui/icons": "^1.1.0",
     "amdefine": "^1.0.1",
     "async-limiter": "^1.0.0",
     "fs-exists-sync": "^0.1.0",
