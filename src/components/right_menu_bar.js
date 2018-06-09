@@ -1,13 +1,14 @@
 import React from 'react';
-import withStyles from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Toggle from '@material-ui/core/Switch';
 import green from '@material-ui/core/colors/green';
 import Link from 'gatsby-link';
 import SocialMediaList from './social_media_list';
+import Paper from '@material-ui/core/Paper';
 
 
 const styles = {
-  switch: {
+  toggle: {
     marginBottom: 5,
     width: 'auto',
     height: 'auto',
@@ -18,22 +19,24 @@ const styles = {
   },
   label: {
     width: 'calc(100% - 256)',
+  },
+  paper: {
+    float: 'right',
+    position: 'relative',
+    marginRight: 10,
+    left: 10,
   }
 };
 
-const RightBar = ({logo, url, handleThemeSwitch, social}) => {
-  
+
+const RightBar = ({logo, url, handleThemeSwitch, social, themeDark, classes}) => {
+  console.log("THEME DARK");
+  console.log(themeDark);
   return (
-    <div className="right-menu-bar">
-      <div>
-        <Link to="/">
-          <img role="presentation" src={`${url}/${logo}`}/>
-        </Link>
-      </div>
-      <div>
+    <div>
+      <div className={classes.toggle}>
         <Toggle
-          checked={true}
-          style={styles}
+          checked={themeDark}
           onChange={handleThemeSwitch}
         />
         <SocialMediaList social={social} />
@@ -42,6 +45,6 @@ const RightBar = ({logo, url, handleThemeSwitch, social}) => {
   );
 }
 
-export default RightBar;
+export default withStyles(styles)(RightBar);
 
 

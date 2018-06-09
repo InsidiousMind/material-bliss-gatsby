@@ -119,7 +119,8 @@ export default class Layout extends Component {
             <Header 
               location={this.props.location} 
               config={this.state.data.site.siteMetadata} 
-              handleThemeToggle={this.handleThemeToggle} 
+              handleThemeToggle={this.handleThemeToggle}
+              themeDark={this.state.dark}
             />
               {this.renderChildren()}
             <Footer themeState={this.state.dark} />

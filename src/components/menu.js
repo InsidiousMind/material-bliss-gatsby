@@ -20,8 +20,10 @@ const styles = {
     position: 'relative',
     float: 'left',
     width: '20em',
+  },
+  menuIcon: {
+    marginLeft: -12
   }
-
 }
 const Menu = ({config, open, handleToggle, classes}) => {
   return (
@@ -30,12 +32,13 @@ const Menu = ({config, open, handleToggle, classes}) => {
       onClose={handleToggle}
       className="menu-overflow"
     >
-      <AppBar position='relative' color='default' className={classes.menuBar} >
+      <AppBar position='static' className={classes.menuBar} >
         <Toolbar>
           <IconButton 
             color="inherit" 
             aria-label="Menu"
             onClick={handleToggle}
+            className={classes.menuIcon}
           >
             <MenuIcon open={open} />
           </IconButton>
