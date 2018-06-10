@@ -1,8 +1,8 @@
 ---
 title:  "Writing a Window Manager in Rust (Ruwm)"
 date:   2017-07-23 11:30:59 -0500
-categories: coding linux
-tags: coding linux X11 XKB XCB rust wm i3
+categories: ['coding', 'linux']
+tags: ['coding', 'linux', 'X11', 'XKB', 'XCB', 'rust', 'wm', 'i3']
 ---
 
 So I decided to write a window manager. Also this is my first post, a whole 6 (ish?) months since I actually created this website. My three test posts have been sitting pretty this entire time. At least the Projects section was updated semi-regularly.
