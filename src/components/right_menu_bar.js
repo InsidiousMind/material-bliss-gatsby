@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Toggle from '@material-ui/core/Switch';
 import green from '@material-ui/core/colors/green';
@@ -28,21 +28,37 @@ const styles = {
   }
 };
 
-
-const RightBar = ({logo, url, handleThemeSwitch, social, themeDark, classes}) => {
-  console.log("THEME DARK");
-  console.log(themeDark);
-  return (
-    <div>
-      <div className={classes.toggle}>
-        <Toggle
-          checked={themeDark}
-          onChange={handleThemeSwitch}
-        />
-        <SocialMediaList social={social} />
+class RightBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      logo: props.logo,
+      url: props.url,
+      handleThemeSwitch: props.handleThemeSwitch,
+      social: props.social,
+      classes: props.classes,
+      checked: true,
+    };
+  }
+ 
+  render() {
+    return (
+      <div>
+        <div className={this.state.classes.toggle}>
+          <Toggle
+            checked={this.state.checked}
+            onChange={
+              () => {
+                this.state.handleThemeSwitch();
+                this.setState({checked:!this.state.checked});
+              }
+            }
+          />
+          <SocialMediaList social={this.state.social} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default withStyles(styles)(RightBar);

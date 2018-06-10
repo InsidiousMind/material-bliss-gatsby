@@ -78,13 +78,13 @@ export default class Layout extends Component {
       data: props.data,
     };
   }
-
+  
   shouldComponentUpdate(nextState) {
     if (this.state.dark !== nextState.dark) {
       return true;
     }
   }
-  
+
   getTheme = () => {
     if (this.state.dark) {
       return darkMuiTheme;
