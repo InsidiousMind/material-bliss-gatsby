@@ -32,11 +32,11 @@ query AllPosts {
         }
         frontmatter {
           title
-          date
+          date(formatString: "MMM DD, YY")
           tags
           categories
         }
-        excerpt
+        excerpt(pruneLength: 400)
         timeToRead
         wordCount {
           words

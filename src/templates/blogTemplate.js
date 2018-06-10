@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
-import get from 'lodash/get';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import {withStyles} from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
 
 
+const styles = {
+  title: {
+    fontSize: '2.5rem',
+    paddingBottom: '1rem'
+  },
+  divider: {
+    marginBottom: '1.5rem'
+ },
+}
 class BlogPostTemplate extends Component {
   constructor(props) {
     super(props);
@@ -12,29 +24,48 @@ class BlogPostTemplate extends Component {
       siteTitle: props.data.site.siteMetadata.title,
       author: props.data.site.siteMetadata.author,
       date: props.data.markdownRemark.frontmatter.date,
+      classes: props.classes,
     };
   } 
 
   render() {
     const {previous, next} = this.props.pathContext;
+    const fm = this.state.post.frontmatter;
+    console.log(this.state.post);
     return (
       <div className='single-post-content'>
-        <Helmet title={`${this.state.post.title} | ${this.state.siteTitle}`}/>
-        <Paper elevation='4' className='paper-wrapper'>
+        <Helmet title={`${fm.title} | ${this.state.siteTitle}`}/>
+        <Paper elevation={4} className='paper-wrapper'>
           <article className='post' itemScope itemType='http://schema.org/BlogPosting'>
             <header className='post-header'>
-              <h1 className='post-title' itemProp='name headline'>{this.state.post.title}</h1>
-              <p className='post-meta'>
-                <time dateTime={this.state.date} itemProp='datePublished'>
-                  {this.state.date}
+              <Typography 
+                variant='title'
+                itemProp='name headline'
+                align='center'
+                className={this.state.classes.title}
+              >
+                {fm.title}
+              </Typography>
+              <Typography variant='subheading' paragraph className='post-meta' align='center'>
+                <time dateTime={fm.date} itemProp='datePublished'>
+                  {this.state.date} •
                 </time>
                 <span itemProp='author' itemScope itemType='http://schema.org/Person'>
-                  <span itemProp='name'>this.state.author</span>
+                  <span itemProp='name'> {this.state.author} • </span>
                 </span>
-              </p>
+                <span>
+                  Read Time: {this.state.post.timeToRead} minutes • </span>
+                <span>
+                  Word Count: {this.state.post.wordCount.words}
+                </span>
+              </Typography>
             </header>
+            <Divider className={this.state.classes.divider}/>
             <div className='post-content' itemProp='articleBody'>
-              {this.state.post.html}
+              <Typography 
+                variant='body2'
+                dangerouslySetInnerHTML={{ __html: this.state.post.html }} 
+              />
             </div>
           </article>
         </Paper>
@@ -43,7 +74,7 @@ class BlogPostTemplate extends Component {
   }
 }
 
-export default BlogPostTemplate;
+export default withStyles(styles)(BlogPostTemplate);
 
 
 export const pageQuery = graphql`
@@ -62,6 +93,10 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         categories
         tags
+      }
+      timeToRead
+      wordCount {
+        words
       }
     }
   }
