@@ -1,13 +1,50 @@
-import React from 'react'
+import React from 'react';
 import Link from 'gatsby-link'
+import PostIndexItem from '../components/post_index_item';
 
-const IndexPage = () => (
-  <div>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-  </div>
-)
+const IndexPage = ({data}) => {
+  const posts = data.allMarkdownRemark.edges;
+  const siteInfo = data.site.siteMetadata;
+  console.log(posts);
+  return (
+    <div>
+      <PostIndexItem posts={posts} siteInfo={siteInfo} />
+    </div>
+  );
+}
 
 export default IndexPage
+
+
+
+export const pageQuery = graphql`
+query AllPosts {
+  site {
+    siteMetadata {
+      title
+    }
+  }
+  allMarkdownRemark {
+    edges {
+      node {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          date
+          tags
+          categories
+        }
+        excerpt
+        timeToRead
+        wordCount {
+          words
+          paragraphs
+        }
+      }
+    }
+  }
+}
+`
+

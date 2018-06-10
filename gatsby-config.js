@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'code.LiquidThink',
     name: 'Andrew Plaza',
+    author: 'Andrew Plaza',
     menu_right_subtitle: 'Blogger || Computer Scientist',
     description: '',
     logo: 'https://www.ledr.com/colours/white.jpg',
@@ -15,8 +16,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
+        path: `${__dirname}/src/posts`,
+        name: 'posts',
       },
     },
     {

@@ -102,6 +102,13 @@ export default class Layout extends Component {
     }]));
 
   render() {
+    const { location, children } = this.props;
+
+    let rootPath = `/`;
+    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS) {
+      rootPath = __PATH_PREFIX__ + `/`;
+    }
+
     return (
 
       <div>
@@ -122,7 +129,7 @@ export default class Layout extends Component {
               handleThemeToggle={this.handleThemeToggle}
               themeDark={this.state.dark}
             />
-              {this.renderChildren()}
+              {children()}
             <Footer themeState={this.state.dark} />
           </div>
         </MuiThemeProvider>
