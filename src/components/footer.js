@@ -17,7 +17,7 @@ const Footer = ({title, email, social, themeURL}) => {
             <ul className="contact-list">
               <li>{title}</li>
               <li><a href={`mailto:${email}`}>{email}</a></li>
-              <li><p>&copy; Material Bliss Jan2017-{today.getFullYear()}</p></li>
+              <li><p>&copy; Andrew Plaza Jan 2017-{today.getFullYear()}</p></li>
               <li><a href={themeURL}>Material Bliss Theme</a></li>
             </ul>
           </div>

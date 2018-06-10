@@ -12,7 +12,7 @@ import Button from '@material-ui/core/Button';
 import SocialMediaList from './social_media_list';
 
 
-const menu_items = { Home: '/', About: '/about/', Projects: '/projects/'};
+const menu_items = { Home: '/', About: '/about/', Projects: '/projects/', Resume: '/resume/'};
 
 const styles = {
   spanSocial: {
