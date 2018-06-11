@@ -127,13 +127,15 @@ export default class Layout extends Component {
           ]}
         />
         <MuiThemeProvider theme={this.getTheme()}>
-          <Header 
-            location={this.props.location} 
-            config={this.state.data.site.siteMetadata} 
-            handleThemeToggle={this.handleThemeToggle}
-            themeDark={this.state.dark}
-          />
+          <div className='site-container-wrapper'>
+            <Header 
+              location={this.props.location} 
+              config={this.state.data.site.siteMetadata} 
+              handleThemeToggle={this.handleThemeToggle}
+              themeDark={this.state.dark}
+            />
             {children()}
+          </div>
           <Footer themeState={this.state.dark} />
         </MuiThemeProvider>
 

@@ -18,6 +18,11 @@ const styles = {
   },
   title: {
     marginBottom: '1rem',
+  },
+  filler: {
+    marginTop: '5rem',
+    height: '10%',
+    position: 'relative',
   }
 }
 
@@ -82,6 +87,7 @@ class NotFoundPage extends Component {
             </Typography>
           </Paper>
           <canvas id='gameCanvas' className='not-found-game' />
+          <div className={this.state.classes.filler} />
         </div>
       <div id='starfield' className={this.state.classes.starfield} />
     </div>
