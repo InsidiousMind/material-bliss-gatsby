@@ -112,7 +112,6 @@ export default class Layout extends Component {
     if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
       rootPath = __PATH_PREFIX__ + `/`;
     }
-
     return (
       <div className='site-container'>
         <link 
@@ -130,13 +129,13 @@ export default class Layout extends Component {
           <div className='site-container-wrapper'>
             <Header 
               location={this.props.location} 
-              config={this.state.data.site.siteMetadata} 
+              siteInfo={this.state.data.site.siteMetadata} 
               handleThemeToggle={this.handleThemeToggle}
               themeDark={this.state.dark}
             />
             {children()}
           </div>
-          <Footer themeState={this.state.dark} />
+          <Footer themeState={this.state.dark} social={this.state.data.site.siteMetadata.social}/>
         </MuiThemeProvider>
 
       </div>
@@ -155,6 +154,13 @@ export const query = graphql`
         logo
         email
         url
+        social { 
+          twitter
+          github
+          facebook
+          googlePlus
+          feed
+        }
       }
     }
   }

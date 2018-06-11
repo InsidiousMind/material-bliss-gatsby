@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import _ from 'lodash';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import {withStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -15,10 +15,10 @@ import SocialMediaList from './social_media_list';
 const menu_items = { Home: '/', About: '/about/', Projects: '/projects/', Resume: '/resume/'};
 
 const styles = {
-  spanSocial: {
-    float: ' left',
-    paddingLeft: '25%',
-    paddingTop: 20,
+  social: {
+    display: 'block',
+    margin: 'auto',
+    marginLeft: '4.5rem',
   }
 };
 
@@ -39,19 +39,19 @@ const renderMenuItems = (url) => {
   return result.map((item) => item);
 };
 
-const MenuItems = (props) => (
+const MenuItems = ({siteInfo, classes}) => (
   <div>
-    {renderMenuItems(props.config.url)}
+    {renderMenuItems(siteInfo.url)}
     <Card>
       <CardContent>
         <Typography gutterBottom variant="headline" component="h2">
-          {props.config.name}
+          {siteInfo.name}
         </Typography>
         <Typography component="h3">
-          {props.config.menu_right_subtitle}
+          {siteInfo.menu_right_subtitle}
         </Typography>
         <Typography component="p">
-          {props.config.description}
+          {siteInfo.description}
         </Typography>
       </CardContent>
       <CardActions>
@@ -62,7 +62,9 @@ const MenuItems = (props) => (
         </Link>
       </CardActions>
     </Card>
-    <SocialMediaList style={styles.spanSocial} social={props.config.social} />
+    <div className={classes.social}>
+      <SocialMediaList social={siteInfo.social} />
+    </div>
   </div>
 );
-export default MenuItems;
+export default withStyles(styles)(MenuItems);

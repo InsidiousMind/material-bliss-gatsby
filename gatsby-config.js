@@ -8,6 +8,13 @@ module.exports = {
     logo: 'https://www.ledr.com/colours/white.jpg',
     email: 'aplaza@liquidthink.net',
     url: 'http://code.liquidthink.net',
+    social: {
+      twitter: 'https://twitter.com/liquid_think',
+      github: 'https://github.com/InsidiousMind',
+      facebook: 'https://www.facebook.com/liquidthinknet',
+      googlePlus: 'https://plus.google.com/+LiquidthinkNet',
+      feed: 'https://code.liquidthink.net/feed.xml',
+    },
   },
   plugins: [
     'gatsby-plugin-react-helmet', 

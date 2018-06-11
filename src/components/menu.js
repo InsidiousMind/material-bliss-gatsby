@@ -25,7 +25,7 @@ const styles = {
     marginLeft: -12
   }
 }
-const Menu = ({config, open, handleToggle, classes}) => {
+const Menu = ({siteInfo, open, handleToggle, classes}) => {
   return (
     <Drawer
       open={open}
@@ -47,7 +47,7 @@ const Menu = ({config, open, handleToggle, classes}) => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <MenuItems config={config} />
+      <MenuItems siteInfo={siteInfo} />
     </Drawer>
   );
 }

@@ -18,7 +18,7 @@ const styles = {
     marginRight: 20,
   },
   flex: {
-    flex: .9,
+    flex: .8,
     fontSize: '2.0em',
   },
   typed: {
@@ -31,7 +31,7 @@ class Header extends Component {
     super(props);
     this.state = { 
       open: false,
-      config: props.config,
+      siteInfo: props.siteInfo,
       handleThemeToggle: props.handleThemeToggle,
       handleMenuToggle: props.handleMenuToggle,
       classes: props.classes,
@@ -73,14 +73,19 @@ class Header extends Component {
               />
             </Typography>
             <RightBar 
-              config={this.props.config} 
+              siteInfo={this.state.siteInfo} 
               handleThemeSwitch={this.state.handleThemeToggle}
               className={this.state.classes.rightBar}
               themeDark={this.state.themeDark}
             />
           </Toolbar>
         </AppBar>
-        <Menu open={this.state.open} handleToggle={this.handleToggle} config={this.state.config} location={this.state.location} />
+        <Menu 
+          open={this.state.open} 
+          handleToggle={this.handleToggle} 
+          siteInfo={this.state.siteInfo}
+          location={this.state.location} 
+        />
       </div>
     );
   }

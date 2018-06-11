@@ -35,7 +35,7 @@ class RightBar extends Component {
       logo: props.logo,
       url: props.url,
       handleThemeSwitch: props.handleThemeSwitch,
-      social: props.social,
+      siteInfo: props.siteInfo,
       classes: props.classes,
       checked: true,
     };
@@ -55,7 +55,7 @@ class RightBar extends Component {
             }
             color='secondary'
           />
-          <SocialMediaList social={this.state.social} />
+          <SocialMediaList social={this.state.siteInfo.social} />
         </div>
       </div>
     );

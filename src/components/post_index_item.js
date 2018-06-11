@@ -59,7 +59,7 @@ const renderPosts = (props) => props.posts.map((post) => {
 
         <div className="div-container">
           <a href={postLink} >
-            <Button variant='contained' className={props.classes.button}>
+            <Button variant='contained' className={props.classes.button} color='secondary'>
               Read More 
               <PlayArrow/>
             </Button>

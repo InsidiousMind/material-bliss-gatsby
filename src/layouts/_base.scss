@@ -268,6 +268,7 @@ pre {
   -o-transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 4rem;
 }
 .single-post-content.expanded{
   padding-left: 255px;
@@ -385,10 +386,4 @@ pre {
   }
 }
 
-.social-media-list {
-  position: relative;
-  display: flex;
-  float: right;
-  height: auto;
-  width: auto;
-}
+
