@@ -1,3 +1,5 @@
+const Projects = require('./projects.js');
+
 module.exports = {
   siteMetadata: {
     title: 'code.LiquidThink',
@@ -15,6 +17,7 @@ module.exports = {
       googlePlus: 'https://plus.google.com/+LiquidthinkNet',
       feed: 'https://code.liquidthink.net/feed.xml',
     },
+    projects: Projects,
   },
   plugins: [
     'gatsby-plugin-react-helmet', 
