@@ -53,6 +53,7 @@ class RightBar extends Component {
                 this.setState({checked:!this.state.checked});
               }
             }
+            color='secondary'
           />
           <SocialMediaList social={this.state.social} />
         </div>

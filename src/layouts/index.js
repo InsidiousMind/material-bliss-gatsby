@@ -13,15 +13,19 @@ import Footer from '../components/footer';
 
 const darkMuiTheme = createMuiTheme({
   palette: {
+    primary:  {
+      type: 'dark',
+      light: '#62727b',
+      main: '#37474f',
+      dark: '#102027',
+    },
+    secondary: {
+      type: 'dark',
+      light: '#60ad5e',
+      main: '#2e7d32',
+      dark: '#005005',
+    },
     type: 'dark',
-    primary1Color: blueGrey[800],
-    primary2Color: green[900],
-    primary3Color: teal[900],
-    accent1Color: green[500],
-    accent2Color: teal[500],
-    accent3Color: cyan[500],
-    textColor: grey[50],
-    alternateTextColor: grey[50],
   },
   appBar: {
     height: 100
@@ -105,15 +109,16 @@ export default class Layout extends Component {
     const { location, children } = this.props;
 
     let rootPath = `/`;
-    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS) {
+    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
       rootPath = __PATH_PREFIX__ + `/`;
     }
 
     return (
-
-      <div>
-
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+      <div className='site-container'>
+        <link 
+          rel="stylesheet" 
+          href="https://fonts.googleapis.com/icon?family=Material+Icons" 
+        />
         <Helmet 
           title={this.state.data.site.siteMetadata.title}
           meta={[
@@ -122,16 +127,14 @@ export default class Layout extends Component {
           ]}
         />
         <MuiThemeProvider theme={this.getTheme()}>
-          <div>
-            <Header 
-              location={this.props.location} 
-              config={this.state.data.site.siteMetadata} 
-              handleThemeToggle={this.handleThemeToggle}
-              themeDark={this.state.dark}
-            />
-              {children()}
-            <Footer themeState={this.state.dark} />
-          </div>
+          <Header 
+            location={this.props.location} 
+            config={this.state.data.site.siteMetadata} 
+            handleThemeToggle={this.handleThemeToggle}
+            themeDark={this.state.dark}
+          />
+            {children()}
+          <Footer themeState={this.state.dark} />
         </MuiThemeProvider>
 
       </div>

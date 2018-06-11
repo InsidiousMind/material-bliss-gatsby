@@ -2,14 +2,22 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import SocialMediaList from './social_media_list';
 import SignupForm from './signup_form';
+import {withStyles} from '@material-ui/core/styles';
 
+const styles = {
+  footer: {
+    position: 'absolute',
+    width: '100%',
+    bottom: 0,
+  }
+}
 
-const Footer = ({title, email, social, themeURL}) => {
+const Footer = ({title, email, social, themeURL, classes}) => {
   const today = new Date();
 
   return (
 
-  <Paper elevation={6}>
+  <Paper elevation={6} className={classes.footer}>
     <footer className="site-footer">
       <div className="wrapper">
         <div className="footer-col-wrapper">
@@ -34,4 +42,4 @@ const Footer = ({title, email, social, themeURL}) => {
   );
 }
 
-export default Footer;
+export default withStyles(styles)(Footer);
