@@ -29,6 +29,7 @@
     "pretty-error": "^2.1.1",
     "prismjs": "^1.14.0",
     "react-helmet": "^5.2.0",
+    "react-masonry-component": "^6.2.1",
     "react-typed": "^1.0.8",
     "stack-trace": "0.0.10",
     "typeface-roboto": "0.0.54",

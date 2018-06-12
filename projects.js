@@ -5,7 +5,6 @@ module.exports = [
     homepage: "http://scrantonhacks.com",
     title: "ScrantonHacks",
     cardImage: "static/img/scrantonhacks.png",
-    cardTitle: "ScrantonHacks",
     subtitle: "Website for Hackathon Club at Scranton",
     date: "Sept 2017",
     tags: [ 'University', 'Club','Hackathon', 'React','Javascript'],
@@ -16,7 +15,6 @@ module.exports = [
     title: "International Samaritan",
     cardImage: "static/img/intsam.png",
     subtitle: "Built a website, freelance, for a non-profit",
-    cardTitle: "International Samaritan",
     date: "2013-2017",
     tags: [
       "blog",
@@ -31,7 +29,6 @@ module.exports = [
     homepage: "https://github.com/ethdbg/ethdbg",
     title: "Ethereum Debug Tools",
     cardImage: "static/img/ethereum.png",
-    cardTitle: "ETHDBG",
     date: "Jan 2018-Present",
     tags: [
       "project",
@@ -47,7 +44,6 @@ module.exports = [
   {
     homepage: "https://github.com/ScrantonHacks/YADQL",
     cardImage: "static/img/yadql.png",
-    cardTitle: "YADQL",
     title: "YADQL (Prototype)",
     date: "Jan 2018-March 2018",
     tags: [
@@ -60,8 +56,8 @@ module.exports = [
   },
   {
     homepage: "http://emotifuck.rs",
+    title: "Emotifuck",
     cardImage: "static/img/brainfuck.png",
-    cardTitle: "Emotif*ck",
     date: "October 2017",
     tags: [
       "project",
@@ -73,8 +69,8 @@ module.exports = [
   },
   {
     homepage: "http://www.github.com/InsidiousMind/code.LiquidThink",
+    title: "code.LiquidThink",
     cardImage: "static/img/code-liquidthink.png",
-    cardTitle: "Code.Liquid_Think",
     cardSubtitle: "this site!",
     date: "Jan 2017-Present",
     tags: [
@@ -105,7 +101,7 @@ module.exports = [
   },
   {
     cardImage: "static/img/gomoku.svg.png",
-    cardTitle: "Gomoku",
+    title: "Gomoku",
     subtitle: "A Networked Client+Server Retro Game",
     homepage: "http://www.github.com/InsidiousMind/Gomoku",
     date: "Nov 2016",
@@ -182,11 +178,11 @@ module.exports = [
   },
   {
     author: "Andrew Plaza, Joe LoManto, Ryan Corcoran",
+    title: "LeapDuel",
     author_tag: "Hackathon Group Project",
     avatar: true,
     homepage: "https://github.com/YourNerdyJoe/leapduel",
     cardImage: "static/img/leapduel.jpg",
-    cardTitle: "LeapDuel",
     cardSubtitle: "Cardgame built with LeapMotion at hackPSU2016",
     date: "Nov 12, 2016",
     tags: [
@@ -223,7 +219,6 @@ module.exports = [
 
     ],
     description: "Landing Page developed for the LucheLLC. Designed in a poppy, fun, and unique manner serves as a reflection of the stores identity.",
-    cardTitle: "",
     cardSubtitle: "",
     author: "Andrew Plaza",
     author_tag: "Web Developer",
