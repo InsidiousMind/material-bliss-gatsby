@@ -7,7 +7,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 import Masonry from 'react-masonry-component';
+import {withStyles} from '@material-ui/core/styles';
 
+const styles = {
+  author: {
+    fontStyle: 'italic',
+  },
+};
 
 
 class ProjectsIndex extends Component {
@@ -16,7 +22,8 @@ class ProjectsIndex extends Component {
     super(props);
     this.state = {
       siteInfo: props.data.site.siteMetadata,
-      projects: props.data.site.siteMetadata.projects
+      projects: props.data.site.siteMetadata.projects,
+      classes: props.classes,
     };
   }
  
@@ -27,8 +34,8 @@ class ProjectsIndex extends Component {
         <a href={project.homepage}>
           <Card>
             <CardHeader 
-              title={project.author} 
-              subheader={project.author_tag} 
+              title={project.title} 
+              subheader={project.subtitle} 
               avatar={this.state.siteInfo.avatar ? this.state.siteInfo.avatar : ''}
             />
             <CardMedia 
@@ -36,9 +43,10 @@ class ProjectsIndex extends Component {
               title={project.title}
             />
             <CardContent>
-              <Typography gutterBottom variant="headline" component="h2">
-                {project.title}
-              </Typography>
+              {(!!project.author ? 
+                <Typography className={this.state.classes.author}>
+                  Created By: {project.author}
+                </Typography> : '' )}
               <Typography>
                 {project.description}
               </Typography>
@@ -59,7 +67,8 @@ class ProjectsIndex extends Component {
     );
   }
 }
-export default ProjectsIndex;
+
+export default withStyles(styles)(ProjectsIndex);
 export const pageQuery = graphql`
 query ProjectQuery {
   site {

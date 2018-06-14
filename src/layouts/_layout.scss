@@ -278,29 +278,13 @@
 
 
 .masonry-wrapper {
-  width: 100rem;
-  margin-right: auto;
-  margin-left: auto;
-  @include media-query($on-standard-laptop){
-    width: 76rem;
-  }
-  @include media-query($on-medium-laptop) {
-    width: 60rem;
-  }
-  @include media-query($on-small-laptop){
-    width: 49rem;
-  }
-  @include media-query($on-laptop){
-    width: auto;
-    overflow-x: hidden;
-  }
+  margin: 1rem auto 5rem 2rem;
 }
 
 .masonry-content {
   width: 30%;
-  margin-top: 10px;
-  margin-left: 10px;
-  box-sizing: border-box;
+  margin-top: 1rem;
+  margin-left: 1rem;
   @include media-query($on-standard-laptop){
     width:30%;
   }
