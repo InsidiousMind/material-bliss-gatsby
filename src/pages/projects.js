@@ -8,10 +8,8 @@ import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 import Masonry from 'react-masonry-component';
 
-
-
 class ProjectsIndex extends Component {
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -19,19 +17,19 @@ class ProjectsIndex extends Component {
       projects: props.data.site.siteMetadata.projects
     };
   }
- 
+
   renderProjects() {
 
     return this.state.projects.map((project) => (
       <div className='masonry-content' key={project.title}>
         <a href={project.homepage}>
           <Card>
-            <CardHeader 
-              title={project.author} 
-              subheader={project.author_tag} 
+            <CardHeader
+              title={project.author}
+              subheader={project.author_tag}
               avatar={this.state.siteInfo.avatar ? this.state.siteInfo.avatar : ''}
             />
-            <CardMedia 
+            <CardMedia
               image={`${this.state.siteInfo.url}/${this.state.siteInfo.cardImage}`}
               title={project.title}
             />
@@ -82,4 +80,3 @@ query ProjectQuery {
   }
 }
 `;
-

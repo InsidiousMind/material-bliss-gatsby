@@ -281,6 +281,9 @@
   width: 100rem;
   margin-right: auto;
   margin-left: auto;
+  padding-bottom: 2em;
+  padding-top: 2em;
+  padding-left: 8em;
   @include media-query($on-standard-laptop){
     width: 76rem;
   }

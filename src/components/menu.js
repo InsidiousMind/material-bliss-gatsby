@@ -23,16 +23,16 @@ const styles = {
   },
   menuIcon: {
     marginLeft: -12
-  }
+  },
 }
 const Menu = ({siteInfo, open, handleToggle, classes, checked}) => {
   return (
     <Drawer
       open={open}
       onClose={handleToggle}
-      className="menu-overflow"
+        variant='temporary'
     >
-      <AppBar position='static' className={classes.menuBar} >
+      <AppBar className={classes.menuBar} >
         <Toolbar>
           <IconButton
             color="inherit"
