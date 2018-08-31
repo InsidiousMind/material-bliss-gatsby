@@ -77,12 +77,12 @@ const lightMuiTheme = createMuiTheme({
 export default class Layout extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       dark: true,
       data: props.data,
     };
   }
-  
+
   shouldComponentUpdate(nextState) {
     if (this.state.dark !== nextState.dark) {
       return true;
@@ -100,7 +100,7 @@ export default class Layout extends Component {
     this.setState({ dark: !this.state.dark });
   }
 
-  renderChildren = () => Children.map(this.props.children, 
+  renderChildren = () => Children.map(this.props.children,
     (child) => cloneElement(child, [{
       themeState: this.state.dark
     }]));
@@ -114,11 +114,11 @@ export default class Layout extends Component {
     }
     return (
       <div className='site-container'>
-        <link 
-          rel="stylesheet" 
-          href="https://fonts.googleapis.com/icon?family=Material+Icons" 
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
-        <Helmet 
+        <Helmet
           title={this.state.data.site.siteMetadata.title}
           meta={[
             { name: 'description', content: 'Sample' },
@@ -127,9 +127,9 @@ export default class Layout extends Component {
         />
         <MuiThemeProvider theme={this.getTheme()}>
           <div className='site-container-wrapper'>
-            <Header 
-              location={this.props.location} 
-              siteInfo={this.state.data.site.siteMetadata} 
+            <Header
+              location={this.props.location}
+              siteInfo={this.state.data.site.siteMetadata}
               handleThemeToggle={this.handleThemeToggle}
               themeDark={this.state.dark}
             />
@@ -154,7 +154,7 @@ export const query = graphql`
         logo
         email
         url
-        social { 
+        social {
           twitter
           github
           facebook

@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link'
+import Link from 'gatsby-link';
 import PostIndexItem from '../components/post_index_item';
 
 const IndexPage = ({data}) => {
@@ -11,7 +11,7 @@ const IndexPage = ({data}) => {
       <PostIndexItem posts={posts} siteInfo={siteInfo} />
     </div>
   );
-}
+};
 
 export default IndexPage
 
@@ -47,4 +47,3 @@ query AllPosts {
   }
 }
 `
-
