@@ -5,7 +5,6 @@ import PostIndexItem from '../components/post_index_item';
 const IndexPage = ({data}) => {
   const posts = data.allMarkdownRemark.edges;
   const siteInfo = data.site.siteMetadata;
-  console.log(posts);
   return (
     <div>
       <PostIndexItem posts={posts} siteInfo={siteInfo} />

@@ -26,7 +26,7 @@ const styles = {
         fill: '#2e7d32',
     },
     iconLight: {
-        fill: "#fff",
+        fill: "#F50057",
     },
     link: {
         margin: '0 0 -12px -12px',

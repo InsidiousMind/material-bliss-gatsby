@@ -39,7 +39,7 @@ const renderMenuItems = (url) => {
   return result.map((item) => item);
 };
 
-const MenuItems = ({siteInfo, classes}) => (
+const MenuItems = ({siteInfo, classes, checked}) => (
   <div>
     {renderMenuItems(siteInfo.url)}
     <Card>
@@ -63,7 +63,7 @@ const MenuItems = ({siteInfo, classes}) => (
       </CardActions>
     </Card>
     <div className={classes.social}>
-      <SocialMediaList social={siteInfo.social} />
+      <SocialMediaList social={siteInfo.social} checked={checked}/>
     </div>
   </div>
 );

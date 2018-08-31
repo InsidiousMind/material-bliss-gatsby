@@ -40,6 +40,7 @@ class Header extends Component {
             handleMenuToggle: props.handleMenuToggle,
             classes: props.classes,
             themeDark: props.themeDark,
+            cookies: props.cookies,
         };
     }
 
@@ -57,7 +58,6 @@ class Header extends Component {
         this.setState({themeDark: !this.state.themeDark})
     }
     render() {
-        console.log("THEME DARK: ", this.state.themeDark);
         return (
             <div className={this.state.classes.root}>
                 <AppBar position="static">
@@ -81,12 +81,13 @@ class Header extends Component {
                                 })}
                             />
                         </Typography>
-                        <RightBar
-                            siteInfo={this.state.siteInfo}
-                            handleThemeSwitch={this.state.handleThemeToggle}
-                            className={this.state.classes.rightBar}
-                            onChange={this.onThemeChange.bind(this)}
-                        />
+                            <RightBar
+                                siteInfo={this.state.siteInfo}
+                                handleThemeSwitch={this.state.handleThemeToggle}
+                                className={this.state.classes.rightBar}
+                                onChange={this.onThemeChange.bind(this)}
+                                cookies={this.state.cookies}
+                            />
                     </Toolbar>
                 </AppBar>
                 <Menu
@@ -94,6 +95,7 @@ class Header extends Component {
                     handleToggle={this.handleToggle}
                     siteInfo={this.state.siteInfo}
                     location={this.state.location}
+                    checked={this.state.themeDark}
                 />
             </div>
         );

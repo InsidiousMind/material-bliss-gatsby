@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { instanceOf } from 'prop-types';instanceOf
+import { withCookies, Cookies } from 'react-cookie';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Toggle from '@material-ui/core/Switch';
@@ -36,6 +38,10 @@ const styles = {
 };
 
 class RightBar extends Component {
+    static propTypes = {
+        cookies: instanceOf(Cookies).isRequired
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -45,13 +51,27 @@ class RightBar extends Component {
             siteInfo: props.siteInfo,
             classes: props.classes,
             checked: true,
-            onChange: props.onChange
+            // checked: props.cookies.get("checked") || true,
+            onChange: props.onChange,
+            cookies: props.cookies
         };
+    }
+
+    componentDidMount() {
+        let cookie = this.state.cookies.get("checked");
+        if (typeof cookie !== 'undefined' && cookie === 'false') {
+            this.state.handleThemeSwitch();
+            this.setState({checked: cookie === 'true'});
+            this.state.onChange();
+        }
     }
 
     handleChange() {
         this.state.handleThemeSwitch();
-        this.setState({checked: !this.state.checked});
+        this.setState({checked: !this.state.checked}, () => {
+            this.state.cookies.set("checked", this.state.checked, { path: "/" });
+            console.log("CHECKED: ", this.state.checked);
+        });
         this.state.onChange();
     }
 
@@ -71,4 +91,6 @@ class RightBar extends Component {
     }
 }
 
-export default withStyles(styles)(RightBar);
+let stylesComp =  withStyles(styles)(RightBar);
+
+export default withCookies(stylesComp);

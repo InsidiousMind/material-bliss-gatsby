@@ -12,7 +12,7 @@ const styles = {
   }
 }
 
-const Footer = ({title, email, social, themeURL, classes}) => {
+const Footer = ({themeState, title, email, social, themeURL, classes}) => {
   const today = new Date();
 
   return (
@@ -30,7 +30,7 @@ const Footer = ({title, email, social, themeURL, classes}) => {
             </ul>
           </div>
           <div className="footer-col footer-col-2">
-            <SocialMediaList social={social}/>
+            <SocialMediaList social={social} checked={themeState}/>
           </div>
           <div className="footer-col footer-col-3">
             <SignupForm />

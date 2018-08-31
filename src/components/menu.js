@@ -25,7 +25,7 @@ const styles = {
     marginLeft: -12
   }
 }
-const Menu = ({siteInfo, open, handleToggle, classes}) => {
+const Menu = ({siteInfo, open, handleToggle, classes, checked}) => {
   return (
     <Drawer
       open={open}
@@ -34,8 +34,8 @@ const Menu = ({siteInfo, open, handleToggle, classes}) => {
     >
       <AppBar position='static' className={classes.menuBar} >
         <Toolbar>
-          <IconButton 
-            color="inherit" 
+          <IconButton
+            color="inherit"
             aria-label="Menu"
             onClick={handleToggle}
             className={classes.menuIcon}
@@ -47,7 +47,7 @@ const Menu = ({siteInfo, open, handleToggle, classes}) => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <MenuItems siteInfo={siteInfo} />
+      <MenuItems siteInfo={siteInfo} checked={checked}/>
     </Drawer>
   );
 }
