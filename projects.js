@@ -4,6 +4,7 @@ module.exports = [
   {
     homepage: "http://scrantonhacks.com",
     title: "ScrantonHacks",
+    author: "Andrew Plaza",
     cardImage: "static/img/scrantonhacks.png",
     subtitle: "Website for Hackathon Club at Scranton",
     date: "Sept 2017",
@@ -13,6 +14,7 @@ module.exports = [
   {
     homepage: "http://www.intsam.org",
     title: "International Samaritan",
+    author: "Andrew Plaza, Mateusz Plaza",
     cardImage: "static/img/intsam.png",
     subtitle: "Built a website, freelance, for a non-profit",
     date: "2013-2017",
@@ -28,6 +30,7 @@ module.exports = [
   {
     homepage: "https://github.com/ethdbg/ethdbg",
     title: "Ethereum Debug Tools",
+    author: "Andrew Plaza",
     cardImage: "static/img/ethereum.png",
     date: "Jan 2018-Present",
     tags: [
@@ -43,6 +46,7 @@ module.exports = [
   },
   {
     homepage: "https://github.com/ScrantonHacks/YADQL",
+    author: "Sean Batzel, Andrew Plaza",
     cardImage: "static/img/yadql.png",
     title: "YADQL (Prototype)",
     date: "Jan 2018-March 2018",
@@ -57,6 +61,7 @@ module.exports = [
   {
     homepage: "http://emotifuck.rs",
     title: "Emotifuck",
+    author: "Andrew Plaza, Sean Batzel",
     cardImage: "static/img/brainfuck.png",
     date: "October 2017",
     tags: [
@@ -69,6 +74,7 @@ module.exports = [
   },
   {
     homepage: "http://www.github.com/InsidiousMind/code.LiquidThink",
+    author: "Andrew Plaza",
     title: "code.LiquidThink",
     cardImage: "static/img/code-liquidthink.png",
     cardSubtitle: "this site!",
@@ -121,6 +127,7 @@ module.exports = [
     title: "Contributing to libuv",
     subtitle: "Cross-platform asynchronous I/O",
     homepage: "https://github.com/libuv/libuv",
+    author: false,
     cardImage: "static/img/libuv.png",
     date: "Dec 2016-Present",
     tags: [
